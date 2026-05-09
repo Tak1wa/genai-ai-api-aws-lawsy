@@ -1,9 +1,9 @@
-# Lawsy-Custom-S3Vectors (AWS版)
+# LawsyAws
 
 法令に関する質問を受け取り、AIが意図を解析して最適化されたレポートを動的に生成するサーバーレス API システムです。
 Amazon S3 Vectors のベクトル検索と Amazon Bedrock (Claude) を組み合わせ、日本の法令データ（e-Gov）を対象とした検索・回答生成を行います。
 
-本プロジェクトは [digital-go-jp/genai-ai-api](https://github.com/digital-go-jp/genai-ai-api) の Google Cloud 版 Lawsy-Custom-BQ を AWS に移植したものです。
+本プロジェクトは [digital-go-jp/genai-ai-api](https://github.com/digital-go-jp/genai-ai-api) の Google Cloud 版 [Lawsy-Custom-BQ](https://github.com/digital-go-jp/genai-ai-api/tree/main/google-cloud/lawsy-custom-bq) を AWS に移植したものです。
 
 ## 技術スタック
 

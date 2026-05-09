@@ -1,4 +1,4 @@
-# 源内への登録手順
+# 源内への登録手順（LawsyAws）
 
 ## ExApp 登録パラメータ
 
@@ -8,7 +8,7 @@
 
 | 項目 | 値 |
 |---|---|
-| 名前 | 法令レポート生成（AWS版） |
+| 名前 | 法令レポート生成（LawsyAws） |
 | APIエンドポイントのURL | `https://<api-id>.execute-api.ap-northeast-1.amazonaws.com/prod/invoke` |
 | APIキー | Terraform output の `api_key_value` |
 

@@ -10,6 +10,7 @@ variable "project_name" {
   default     = "lawsy-aws"
 }
 
+
 variable "vector_bucket_arn" {
   description = "S3 Vectors バケットの ARN"
   type        = string

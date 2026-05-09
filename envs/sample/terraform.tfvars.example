@@ -4,6 +4,7 @@ aws_region = "ap-northeast-1"
 # プロジェクト名
 project_name = "lawsy-aws"
 
+
 # S3 Vectors バケット ARN（preprocess実行後に取得）
 vector_bucket_arn = "arn:aws:s3vectors:ap-northeast-1:123456789012:vector-bucket/your-vector-bucket"
 
