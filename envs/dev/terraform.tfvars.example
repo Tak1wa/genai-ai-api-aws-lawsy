@@ -1,0 +1,23 @@
+# AWS リージョン
+aws_region = "ap-northeast-1"
+
+# プロジェクト名
+project_name = "lawsy-aws"
+
+
+# S3 Vectors バケット ARN（preprocess実行後に取得）
+vector_bucket_arn = "arn:aws:s3vectors:ap-northeast-1:123456789012:vector-bucket/your-vector-bucket"
+
+# S3 Vectors インデックス名
+vector_index_name = "laws-index"
+
+# Bedrock モデル ID
+model_id = "anthropic.claude-sonnet-4-20250514-v1:0"
+
+# Embedding モデル ID
+embedding_model_id = "amazon.titan-embed-text-v2:0"
+
+# API アクセス許可 IP（源内 Web の NAT Gateway EIP）
+allowed_ip_addresses = [
+  "xxx.xxx.xxx.xxx/32",
+]

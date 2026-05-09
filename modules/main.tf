@@ -121,7 +121,7 @@ resource "null_resource" "pip_install" {
     command = <<-EOT
       rm -rf ${path.module}/../.build/layer
       mkdir -p ${path.module}/../.build/layer/python
-      pip install -r ${path.module}/../lambda/requirements.txt -t ${path.module}/../.build/layer/python --quiet
+      pip install -r ${path.module}/../lambda/requirements.txt -t ${path.module}/../.build/layer/python --quiet --platform manylinux2014_x86_64 --implementation cp --python-version 3.12 --only-binary=:all:
     EOT
   }
 }
