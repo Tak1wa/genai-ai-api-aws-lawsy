@@ -1,0 +1,10 @@
+# AWS SDK
+boto3>=1.35.0
+
+# Data Processing
+pydantic>=2.10.0
+
+# HTTP & Web
+requests>=2.32.0
+
+# Utilities
