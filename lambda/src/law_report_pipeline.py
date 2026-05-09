@@ -253,7 +253,7 @@ def _select_articles(
     query: str, articles: list[ArticleWithSummary],
     bedrock_client: BedrockClient, usage_tracker: UsageTracker,
 ) -> list[ArticleWithSummary]:
-    """AIで関連条文を選択する"""
+    """AIで関連条文を選択する（上位20件に制限）"""
     logger.info("AI selecting relevant articles...")
     if len(articles) > 5:
         try:
@@ -264,16 +264,17 @@ def _select_articles(
             response_text, usage = bedrock_client.generate_text(
                 prompt=prompt,
                 system_instruction=prompts.PROMPT_SELECT_RELEVANT_ARTICLES,
-                temperature=0.0, max_tokens=8192, top_p=1.0,
+                temperature=0.0, max_tokens=8192,
             )
             usage_tracker.add_usage(bedrock_client.config.model_id, usage)
             selected_indices = _parse_ai_selection(response_text, len(articles))
             selected = [articles[i-1] for i in selected_indices if 1 <= i <= len(articles)]
             if selected:
-                articles = selected
+                articles = selected[:20]  # 上位20件に制限
                 logger.info(f"AI selected {len(articles)} relevant articles")
         except Exception as e:
-            logger.error(f"AI article selection failed: {e}, using all articles")
+            logger.error(f"AI article selection failed: {e}, using first 20 articles")
+            articles = articles[:20]
     return articles
 
 
@@ -449,7 +450,7 @@ def _generate_complete_report(
     response_text, usage = bedrock_client.generate_text(
         prompt=prompt,
         system_instruction=prompts.PROMPT_GENERATE_COMPLETE_REPORT,
-        temperature=0.0, max_tokens=8192, top_p=1.0,
+        temperature=0.0, max_tokens=8192,
     )
     usage_tracker.add_usage(bedrock_client.config.model_id, usage)
     # モデルが # 見出し前に出力する前置き文を除去

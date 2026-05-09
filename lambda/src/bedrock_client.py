@@ -40,7 +40,6 @@ class BedrockClient:
         inference_config = {
             "temperature": temperature if temperature is not None else self.config.temperature,
             "maxTokens": max_tokens if max_tokens is not None else self.config.max_tokens,
-            "topP": top_p if top_p is not None else self.config.top_p,
         }
 
         kwargs = {
