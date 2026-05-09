@@ -75,8 +75,8 @@ resource "aws_iam_role_policy" "lambda_policy" {
           "s3:ListBucket"
         ]
         Resource = [
-          "arn:aws:s3:::lawsy-aws-data-PLACEHOLDER",
-          "arn:aws:s3:::lawsy-aws-data-PLACEHOLDER/*"
+          "arn:aws:s3:::${var.data_bucket_name}",
+          "arn:aws:s3:::${var.data_bucket_name}/*"
         ]
       }
     ]
@@ -110,7 +110,7 @@ resource "aws_lambda_function" "lawsy" {
       EMBEDDING_MODEL_ID   = var.embedding_model_id
       VECTOR_BUCKET_ARN    = var.vector_bucket_arn
       VECTOR_INDEX_NAME    = var.vector_index_name
-      DATA_BUCKET_NAME     = "lawsy-aws-data-PLACEHOLDER"
+      DATA_BUCKET_NAME     = var.data_bucket_name
       TEMPERATURE          = "0.0"
       MAX_TOKENS           = "8192"
       TOP_P                = "1.0"

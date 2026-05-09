@@ -30,6 +30,7 @@ module "lawsy" {
   model_id             = var.model_id
   embedding_model_id   = var.embedding_model_id
   allowed_ip_addresses = var.allowed_ip_addresses
+  data_bucket_name     = var.data_bucket_name
 }
 
 output "api_endpoint" {

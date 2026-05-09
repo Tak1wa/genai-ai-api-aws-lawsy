@@ -57,7 +57,7 @@ class S3VectorsRetriever:
         vector_bucket_arn: str,
         vector_index_name: str,
         bedrock_client: BedrockClient,
-        data_bucket_name: str = "lawsy-aws-data-PLACEHOLDER",
+        data_bucket_name: str = "",
     ):
         self.vector_bucket_arn = vector_bucket_arn
         # vector_bucket_arn から bucket name を抽出

@@ -21,3 +21,6 @@ embedding_model_id = "amazon.titan-embed-text-v2:0"
 allowed_ip_addresses = [
   "xxx.xxx.xxx.xxx/32",
 ]
+
+# 条文データ格納用 S3 バケット名
+data_bucket_name = "your-data-bucket-name"

@@ -33,3 +33,8 @@ variable "allowed_ip_addresses" {
   type        = list(string)
   default     = []
 }
+
+variable "data_bucket_name" {
+  description = "条文データ格納用 S3 バケット名"
+  type        = string
+}
