@@ -41,3 +41,8 @@ output "lambda_function_name" {
   description = "Lambda 関数名"
   value       = module.lawsy.lambda_function_name
 }
+
+output "lambda_function_url" {
+  description = "Lambda Function URL"
+  value       = module.lawsy.lambda_function_url
+}

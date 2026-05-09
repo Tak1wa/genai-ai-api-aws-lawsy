@@ -121,6 +121,29 @@ resource "aws_lambda_function" "lawsy" {
 }
 
 # ---------------------------
+# Lambda Function URL (タイムアウト制限なし)
+# ---------------------------
+
+resource "aws_lambda_function_url" "lawsy" {
+  function_name      = aws_lambda_function.lawsy.function_name
+  authorization_type = "NONE"
+
+  cors {
+    allow_origins = ["*"]
+    allow_methods = ["POST"]
+    allow_headers = ["Content-Type", "x-api-key"]
+  }
+}
+
+resource "aws_lambda_permission" "function_url" {
+  statement_id           = "AllowFunctionURLInvoke"
+  action                 = "lambda:InvokeFunctionUrl"
+  function_name          = aws_lambda_function.lawsy.function_name
+  principal              = "*"
+  function_url_auth_type = "NONE"
+}
+
+# ---------------------------
 # Lambda Layer (dependencies)
 # ---------------------------
 
@@ -194,6 +217,7 @@ resource "aws_api_gateway_integration" "invoke_post" {
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = aws_lambda_function.lawsy.invoke_arn
+  timeout_milliseconds    = 29000
 }
 
 resource "aws_api_gateway_integration" "invoke_options" {

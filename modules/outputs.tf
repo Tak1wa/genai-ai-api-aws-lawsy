@@ -18,3 +18,8 @@ output "api_gateway_id" {
   description = "API Gateway ID"
   value       = aws_api_gateway_rest_api.lawsy.id
 }
+
+output "lambda_function_url" {
+  description = "Lambda Function URL (タイムアウト制限なし)"
+  value       = aws_lambda_function_url.lawsy.function_url
+}
