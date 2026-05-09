@@ -19,6 +19,9 @@ class AppConfig:
     vector_bucket_arn: str
     vector_index_name: str
 
+    # S3 データバケット
+    data_bucket_name: str
+
     # 生成パラメータ
     temperature: float
     max_tokens: int
@@ -35,6 +38,7 @@ def load_config() -> AppConfig:
         ),
         vector_bucket_arn=os.environ.get("VECTOR_BUCKET_ARN", ""),
         vector_index_name=os.environ.get("VECTOR_INDEX_NAME", "laws-index"),
+        data_bucket_name=os.environ.get("DATA_BUCKET_NAME", "lawsy-aws-data-PLACEHOLDER"),
         temperature=float(os.environ.get("TEMPERATURE", "0.0")),
         max_tokens=int(os.environ.get("MAX_TOKENS", "8192")),
         top_p=float(os.environ.get("TOP_P", "1.0")),

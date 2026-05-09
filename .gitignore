@@ -21,6 +21,7 @@ venv/
 
 # Data files
 *.jsonl
+data/
 xml_files/
 
 # IDE

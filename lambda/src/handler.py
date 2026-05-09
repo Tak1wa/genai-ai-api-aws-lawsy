@@ -31,6 +31,7 @@ try:
         vector_bucket_arn=app_config.vector_bucket_arn,
         vector_index_name=app_config.vector_index_name,
         bedrock_client=bedrock_client,
+        data_bucket_name=app_config.data_bucket_name,
     )
     logger.info("アプリケーションの初期化が完了しました。")
 except Exception as e:

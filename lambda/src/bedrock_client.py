@@ -34,7 +34,7 @@ class BedrockClient:
         Returns:
             tuple[str, dict]: (生成テキスト, usage情報)
         """
-        messages = [{"role": "user", "content": [{"type": "text", "text": prompt}]}]
+        messages = [{"role": "user", "content": [{"text": prompt}]}]
 
         inference_config = {
             "temperature": temperature if temperature is not None else self.config.temperature,
